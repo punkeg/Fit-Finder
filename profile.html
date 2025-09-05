@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8"/>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans:wght@400;500;700;900&family=Space+Grotesk:wght@400;500;700" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined" rel="stylesheet"/>
+<title>Fit Finder - Profile</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<style>
+:root {
+    --primary-color: #06f9f9;
+    --background-color: #0a1014;
+    --glass-color: rgba(255, 255, 255, 0.05);
+    --glass-border-color: rgba(255, 255, 255, 0.1);
+    --text-color: #e5e7eb;
+    --subtle-text-color: #9ca3af;
+}
+.liquid-glass {
+    background: var(--glass-color);
+    backdrop-filter: blur(20px);
+    border: 1px solid var(--glass-border-color);
+    box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+}
+.active-nav-item { color: var(--primary-color); }
+body { min-height: max(884px, 100dvh); font-family: "Space Grotesk","Noto Sans",sans-serif; }
+</style>
+</head>
+<body class="bg-[var(--background-color)] text-white">
+<div class="relative flex flex-col min-h-screen justify-between overflow-x-hidden">
+
+<main class="flex-grow px-4 sm:px-6 lg:px-8 py-8 space-y-8 pb-28">
+
+<header class="flex items-center justify-between">
+    <h1 class="text-2xl font-bold tracking-tighter">Profile</h1>
+</header>
+
+<section class="space-y-6">
+  <!-- Profile Picture and Info: Horizontal Layout -->
+  <div class="liquid-glass rounded-3xl p-6 flex items-center gap-6">
+    <!-- Profile Picture -->
+    <div class="bg-center bg-no-repeat bg-cover rounded-full h-24 w-24 border-2 border-[var(--primary-color)]" style="background-image: url('https://gcdnb.pbrd.co/images/iLePJlnjmMxI.jpg?o=1');"></div>
+    <!-- Name and Handle -->
+    <div class="flex flex-col justify-center">
+      <h2 class="text-xl font-semibold">Arthur  </h2>
+      <p class="text-[var(--subtle-text-color)]">@archie.fits</p>
+    </div> 
+  </div>
+
+  <!-- Account Sections -->
+  <div class="space-y-4">
+    <div class="liquid-glass rounded-3xl overflow-hidden">
+      <a class="flex items-center justify-between p-4 hover:bg-white/10 transition-colors" href="#">
+        <span class="text-white font-medium">Account</span>
+        <span class="material-symbols-outlined text-white">chevron_right</span>
+      </a>
+      <hr class="border-white/10"/>
+      <a class="flex items-center justify-between p-4 hover:bg-white/10 transition-colors" href="#">
+        <span class="text-white font-medium">Preferences</span>
+        <span class="material-symbols-outlined text-white">chevron_right</span>
+      </a>
+      <hr class="border-white/10"/>
+      <a class="flex items-center justify-between p-4 hover:bg-white/10 transition-colors" href="#">
+        <span class="text-white font-medium">Saved Searches</span>
+        <span class="material-symbols-outlined text-white">chevron_right</span>
+      </a>
+    </div>
+
+    <div class="liquid-glass rounded-3xl overflow-hidden">
+      <a class="flex items-center justify-between p-4 hover:bg-white/10 transition-colors" href="#">
+        <span class="text-white font-medium">Settings</span>
+        <span class="material-symbols-outlined text-white">chevron_right</span>
+      </a>
+      <hr class="border-white/10"/>
+      <!-- Dark Mode Toggle -->
+      <div class="flex items-center justify-between p-4">
+        <span class="text-white font-medium">Dark Mode</span>
+        <div class="relative inline-flex items-center cursor-pointer">
+          <input type="checkbox" class="sr-only peer" checked>
+          <div class="w-11 h-6 bg-gray-600 rounded-full peer-checked:bg-[var(--primary-color)] peer-checked:after:translate-x-full after:content-[''] after:absolute after:top-0.5 after:left-[2px] after:bg-white after:border after:rounded-full after:h-5 after:w-5 after:transition-all"></div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+</section>
+
+</main>
+
+<footer class="fixed bottom-0 left-0 right-0 z-50 p-4">
+<nav class="flex justify-around liquid-glass rounded-full p-2">
+    <a class="flex flex-1 flex-col items-center justify-center p-2 rounded-full text-[var(--subtle-text-color)]" href="index.html">
+        <span class="material-symbols-outlined text-3xl">home</span>
+    </a>
+    <a class="flex flex-1 flex-col items-center justify-center p-2 rounded-full text-[var(--subtle-text-color)]" href="favorites.html">
+        <span class="material-symbols-outlined text-3xl">favorite</span>
+    </a>
+    <a class="flex flex-1 flex-col items-center justify-center p-2 rounded-full active-nav-item" href="profile.html">
+        <span class="material-symbols-outlined text-3xl">person</span>
+    </a>
+</nav>
+</footer>
+
+</div>
+</body>
+</html>

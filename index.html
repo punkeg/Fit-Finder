@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8"/>
+<link crossorigin="" href="https://fonts.gstatic.com/" rel="preconnect"/>
+<link as="style" href="https://fonts.googleapis.com/css2?display=swap&family=Noto+Sans:wght@400;500;700;900&family=Space+Grotesk:wght@400;500;700" onload="this.rel='stylesheet'" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined" rel="stylesheet"/>
+<title>Fit Finder - Discover Your Style</title>
+<link href="data:image/x-icon;base64," rel="icon" type="image/x-icon"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<style type="text/tailwindcss">
+    :root {
+        --primary-color: #06f9f9;
+        --background-color: #0a1014;
+        --glass-color: rgba(255, 255, 255, 0.05);
+        --glass-border-color: rgba(255, 255, 255, 0.1);
+        --text-color: #e5e7eb;
+        --subtle-text-color: #9ca3af;
+    }
+    .liquid-glass {
+        background: var(--glass-color);
+        backdrop-filter: blur(20px);
+        border: 1px solid var(--glass-border-color);
+        box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+    }
+    .active-nav-item {
+        color: var(--primary-color);
+    }
+    .active-nav-item span,
+    .active-nav-item p {
+        color: var(--primary-color);
+    }
+</style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+      font-family: "Space Grotesk", "Noto Sans", sans-serif;
+    }
+</style>
+</head>
+<body class="bg-[var(--background-color)] text-white">
+<div class="relative flex size-full min-h-screen flex-col dark justify-between overflow-x-hidden">
+
+<main class="flex-grow px-4 sm:px-6 lg:px-8 py-8 space-y-8 pb-28">
+<header class="flex items-center justify-between">
+<h1 class="text-2xl font-bold tracking-tighter">Fit Finder</h1>
+</header>
+
+<!-- Search -->
+<div class="relative">
+<span class="material-symbols-outlined absolute left-4 top-1/2 -translate-y-1/2 text-[var(--subtle-text-color)]">search</span>
+<input id="searchInput" class="form-input w-full rounded-full border-none liquid-glass h-14 pl-12 pr-4 text-white placeholder:text-[var(--subtle-text-color)] focus:outline-none focus:ring-2 focus:ring-[var(--primary-color)]/50" placeholder="Search for styles, brands..." type="search" autocomplete="off"/>
+</div>
+
+<!-- Upload section -->
+<div class="text-center p-8 liquid-glass rounded-3xl space-y-6">
+<h2 class="text-xl font-medium">Find Your Next Favorite Outfit</h2>
+<p class="text-[var(--subtle-text-color)]">Upload a photo to find similar styles or describe what you're looking for.</p>
+<div class="flex flex-col sm:flex-row gap-4 justify-center">
+    <button id="cameraBtn" class="flex w-full sm:w-auto items-center justify-center gap-2 rounded-full bg-[var(--primary-color)] px-6 py-3 text-black font-bold transition-transform hover:scale-105">
+        <span class="material-symbols-outlined">photo_camera</span>
+        <span>Use Camera</span>
+    </button>
+    <button id="galleryBtn" class="flex w-full sm:w-auto items-center justify-center gap-2 rounded-full liquid-glass px-6 py-3 font-bold transition-transform hover:scale-105">
+        <span class="material-symbols-outlined">photo_library</span>
+        <span>From Gallery</span>
+    </button>
+    <input type="file" id="fileInput" accept="image/*" capture="environment" class="hidden"/>
+</div>
+</div>
+
+<!-- Trending Styles -->
+<section>
+<h2 class="text-2xl font-bold mb-4">Trending Styles</h2>
+<div id="stylesContainer" class="flex overflow-x-auto [-ms-scrollbar-style:none] [scrollbar-width:none] [&::-webkit-scrollbar]:hidden -mx-4 px-4 gap-4">
+    <div class="flex-none w-64 style-card" data-name="Techwear">
+        <div class="liquid-glass rounded-3xl p-3">
+            <div class="w-full h-72 bg-cover bg-center rounded-2xl mb-3" style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuDgJTFEz2hfe08vPngejm0_tYwA4PzKIUajFmrKCOqS2rLSekhs6lMZd7cogCqrZ2s3b1dSDANt8kMDc7RcSLWcvvzkIQMoAIiwgeJ1psnHR6SyWjn-V1Jc3rxSdH_m8N5Ktr9rRNhBYMN6UfAdSl-BmDMNEoDsNz_lI37tm4qOS1Y1_nSS8ApaKzMfyucs88SqXKs6kO3tFCMuOW-KMTnvlAZbTYNOs1UXk21lZ9MzQR1e5Fss8lAmRyEWSCfKXE1NZ4xkrUCW-blE");'></div>
+            <p class="font-semibold text-lg text-center">Techwear</p>
+        </div>
+    </div>
+    <div class="flex-none w-64 style-card" data-name="Cyberpunk">
+        <div class="liquid-glass rounded-3xl p-3">
+            <div class="w-full h-72 bg-cover bg-center rounded-2xl mb-3" style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuBTu32l6T1wTs3Ey_SRE0HBK0gxkQkAGQIpT11x1QC5eQYz7ug94PvdgqMQxok6ysKa-sDJc8iwxw0jqUKu4d6LtMh6un-ceQOLKw6fCTxLd4Zz32Xd8XvQZZR4vaxvFALxcJyyviqdxy7yjPIhwvmf_HvWDLnOJ33sI7iQMJhvNWQ_hXybE8WDx-Uk0MrhTY9wdpXkt21VRbIx1UvvCTayx3dkxuYXL-j45A93iH2Hbpid9i47rx21taOImRcFIVG8b5sfaf9aNThJ");'></div>
+            <p class="font-semibold text-lg text-center">Cyberpunk</p>
+        </div>
+    </div>
+    <div class="flex-none w-64 style-card" data-name="Neo-Gothic">
+        <div class="liquid-glass rounded-3xl p-3">
+            <div class="w-full h-72 bg-cover bg-center rounded-2xl mb-3" style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuC8eLedl-uNXSlb5gMiDiMP4-98AuX1E3CwRmqgtV___igG8o2hAOrptsZ9JvdEp9cJfUqebR3_jqAeMvJSo_yCAvDvWODWoHJ3W1B4YriEvfj4aUenEdEKtyAEUfCLrZlr-iZRjoLJ4E5wG4CCgNcUURfnUbSUQesariKuRHeFlnJ9pl_iVszuOI3N_-NPBcqZ5XTV-aBAS4KnFcaEulvLh9QkH3souh1KCzN3rMq1A89eicA5yta6fu8G_0KlCGxA5nesJL-RDWF4");'></div>
+            <p class="font-semibold text-lg text-center">Neo-Gothic</p>
+        </div>
+    </div>
+</div>
+</section>
+</main>
+
+<!-- Bottom nav -->
+<footer class="fixed bottom-0 left-0 right-0 z-50 p-4">
+  <nav class="flex justify-around liquid-glass rounded-full p-2">
+    <a class="flex flex-1 flex-col items-center justify-center p-2 rounded-full text-[var(--primary-color)]" href="index.html">
+      <span class="material-symbols-outlined text-3xl">home</span>
+    </a>
+    <a class="flex flex-1 flex-col items-center justify-center p-2 rounded-full text-[var(--subtle-text-color)]" href="favorites.html">
+      <span class="material-symbols-outlined text-3xl">favorite</span>
+    </a>
+    <a class="flex flex-1 flex-col items-center justify-center p-2 rounded-full text-[var(--subtle-text-color)]" href="profile.html">
+      <span class="material-symbols-outlined text-3xl">person</span>
+    </a>
+  </nav>
+</footer>
+
+</div>
+
+<!-- JavaScript -->
+<script>
+const cameraBtn = document.getElementById("cameraBtn");
+const galleryBtn = document.getElementById("galleryBtn");
+const fileInput = document.getElementById("fileInput");
+const searchInput = document.getElementById("searchInput");
+const styleCards = document.querySelectorAll(".style-card");
+
+// Camera button
+cameraBtn.addEventListener("click", () => {
+  fileInput.setAttribute("capture", "environment"); // rear camera
+  fileInput.click();
+});
+
+// Gallery button
+galleryBtn.addEventListener("click", () => {
+  fileInput.removeAttribute("capture");
+  fileInput.click();
+});
+
+// Handle file selection
+fileInput.addEventListener("change", (event) => {
+  if (event.target.files.length > 0) {
+    alert("Selected: " + event.target.files[0].name);
+  }
+});
+
+// Search filtering
+searchInput.addEventListener("input", () => {
+  const query = searchInput.value.toLowerCase();
+  styleCards.forEach(card => {
+    const name = card.dataset.name.toLowerCase();
+    card.style.display = name.includes(query) ? "block" : "none";
+  });
+});
+</script>
+</body>
+</html>

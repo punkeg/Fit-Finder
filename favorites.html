@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8"/>
+<link crossorigin="" href="https://fonts.gstatic.com/" rel="preconnect"/>
+<link as="style" href="https://fonts.googleapis.com/css2?display=swap&family=Noto+Sans:wght@400;500;700;900&family=Space+Grotesk:wght@400;500;700" onload="this.rel='stylesheet'" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined" rel="stylesheet"/>
+<title>Fit Finder - Favorites</title>
+<link href="data:image/x-icon;base64," rel="icon" type="image/x-icon"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<style type="text/tailwindcss">
+:root {
+    --primary-color: #06f9f9;
+    --background-color: #0a1014;
+    --glass-color: rgba(255, 255, 255, 0.05);
+    --glass-border-color: rgba(255, 255, 255, 0.1);
+    --text-color: #e5e7eb;
+    --subtle-text-color: #9ca3af;
+}
+.liquid-glass {
+    background: var(--glass-color);
+    backdrop-filter: blur(20px);
+    border: 1px solid var(--glass-border-color);
+    box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+}
+.active-nav-item {
+    color: var(--primary-color);
+}
+.active-nav-item span,
+.active-nav-item p {
+    color: var(--primary-color);
+}
+</style>
+<style>
+body {
+  min-height: max(884px, 100dvh);
+  font-family: "Space Grotesk", "Noto Sans", sans-serif;
+}
+</style>
+</head>
+<body class="bg-[var(--background-color)] text-white">
+<div class="relative flex size-full min-h-screen flex-col dark justify-between overflow-x-hidden">
+
+<main class="flex-grow px-4 sm:px-6 lg:px-8 py-8 space-y-8 pb-28">
+<header class="flex items-center justify-between">
+<h1 class="text-2xl font-bold tracking-tighter">Your Favorites</h1>
+</header>
+
+<section>
+  <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
+
+    <!-- Favorite card 1 -->
+    <div class="liquid-glass rounded-3xl p-4 space-y-3 relative">
+      <div class="w-full h-64 bg-cover bg-center rounded-2xl" 
+           style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuDgJTFEz2hfe08vPngejm0_tYwA4PzKIUajFmrKCOqS2rLSekhs6lMZd7cogCqrZ2s3b1dSDANt8kMDc7RcSLWcvvzkIQMoAIiwgeJ1psnHR6SyWjn-V1Jc3rxSdH_m8N5Ktr9rRNhBYMN6UfAdSl-BmDMNEoDsNz_lI37tm4qOS1Y1_nSS8ApaKzMfyucs88SqXKs6kO3tFCMuOW-KMTnvlAZbTYNOs1UXk21lZ9MzQR1e5Fss8lAmRyEWSCfKXE1NZ4xkrUCW-blE");'></div>
+
+      <div>
+        <p class="font-semibold text-lg favorite-title">Techwear Jacket</p>
+        <p class="text-[var(--subtle-text-color)] text-sm favorite-desc">Futuristic streetwear with waterproof fabric.</p>
+      </div>
+
+      <button class="edit-btn absolute bottom-4 right-7 px-3 py-1 bg-[var(--primary-color)] text-black rounded-lg text-sm font-medium">Edit</button>
+    </div>
+
+    <!-- Favorite card 2 -->
+    <div class="liquid-glass rounded-3xl p-4 space-y-3 relative">
+      <div class="w-full h-64 bg-cover bg-center rounded-2xl" 
+           style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuBTu32l6T1wTs3Ey_SRE0HBK0gxkQkAGQIpT11x1QC5eQYz7ug94PvdgqMQxok6ysKa-sDJc8iwxw0jqUKu4d6LtMh6un-ceQOLKw6fCTxLd4Zz32Xd8XvQZZR4vaxvFALxcJyyviqdxy7yjPIhwvmf_HvWDLnOJ33sI7iQMJhvNWQ_hXybE8WDx-Uk0MrhTY9wdpXkt21VRbIx1UvvCTayx3dkxuYXL-j45A93iH2Hbpid9i47rx21taOImRcFIVG8b5sfaf9aNThJ");'></div>
+
+      <div>
+        <p class="font-semibold text-lg favorite-title">Cyberpunk Hoodie</p>
+        <p class="text-[var(--subtle-text-color)] text-sm favorite-desc">Neon-accent hoodie perfect for night looks.</p>
+      </div>
+
+      <button class="edit-btn absolute bottom-4 right-4 px-3 py-1 bg-[var(--primary-color)] text-black rounded-lg text-sm font-medium">Edit</button>
+    </div>
+
+  </div>
+</section>
+</main>
+
+<footer class="fixed bottom-0 left-0 right-0 z-50 p-4">
+<nav class="flex justify-around liquid-glass rounded-full p-2">
+    <a class="flex flex-1 flex-col items-center justify-center p-2 rounded-full text-[var(--subtle-text-color)]" href="index.html">
+        <span class="material-symbols-outlined text-3xl">home</span>
+    </a>
+    <a class="flex flex-1 flex-col items-center justify-center p-2 rounded-full active-nav-item" href="favorites.html">
+        <span class="material-symbols-outlined text-3xl">favorite</span>
+    </a>
+    <a class="flex flex-1 flex-col items-center justify-center p-2 rounded-full text-[var(--subtle-text-color)]" href="profile.html">
+        <span class="material-symbols-outlined text-3xl">person</span>
+    </a>
+</nav>
+</footer>
+</div>
+
+<script>
+document.querySelectorAll('.edit-btn').forEach(button => {
+  button.addEventListener('click', () => {
+    const card = button.closest('.liquid-glass');
+    const titleEl = card.querySelector('.favorite-title');
+    const descEl = card.querySelector('.favorite-desc');
+
+    if (button.textContent === 'Edit') {
+      const titleInput = document.createElement('input');
+      titleInput.type = 'text';
+      titleInput.value = titleEl.textContent;
+      titleInput.className = 'w-full mb-1 rounded p-1 text-black';
+
+      const descInput = document.createElement('input');
+      descInput.type = 'text';
+      descInput.value = descEl.textContent;
+      descInput.className = 'w-full rounded p-1 text-black';
+
+      card.replaceChild(titleInput, titleEl);
+      card.replaceChild(descInput, descEl);
+
+      button.textContent = 'Save';
+    } else {
+      const titleInput = card.querySelector('input[type="text"]:first-child');
+      const descInput = card.querySelector('input[type="text"]:last-child');
+
+      titleEl.textContent = titleInput.value;
+      descEl.textContent = descInput.value;
+
+      card.replaceChild(titleEl, titleInput);
+      card.replaceChild(descEl, descInput);
+
+      button.textContent = 'Edit';
+    }
+  });
+});
+</script>
+
+</body>
+</html>
